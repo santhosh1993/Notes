@@ -10,6 +10,13 @@
 		B53423A322DF05B300FB37B7 /* Notes.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B534239922DF05B300FB37B7 /* Notes.framework */; };
 		B53423A822DF05B300FB37B7 /* NotesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B53423A722DF05B300FB37B7 /* NotesTests.swift */; };
 		B53423AA22DF05B300FB37B7 /* Notes.h in Headers */ = {isa = PBXBuildFile; fileRef = B534239C22DF05B300FB37B7 /* Notes.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B53423C322DF062A00FB37B7 /* NotesStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B53423C222DF062A00FB37B7 /* NotesStoryboard.storyboard */; };
+		B53423C522DF075F00FB37B7 /* NotesListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B53423C422DF075F00FB37B7 /* NotesListViewController.swift */; };
+		B53423C822DF187100FB37B7 /* add.png in Resources */ = {isa = PBXBuildFile; fileRef = B53423C722DF187100FB37B7 /* add.png */; };
+		B53423CA22DF1D6400FB37B7 /* NoteListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B53423C922DF1D6400FB37B7 /* NoteListView.swift */; };
+		B53423CC22DF20AF00FB37B7 /* NotesListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B53423CB22DF20AF00FB37B7 /* NotesListViewModel.swift */; };
+		B53423CE22DF244300FB37B7 /* NotesListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B53423CD22DF244300FB37B7 /* NotesListTableViewCell.swift */; };
+		B53423D022DF3AFA00FB37B7 /* NotesHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = B53423CF22DF3AFA00FB37B7 /* NotesHandler.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,6 +36,13 @@
 		B53423A222DF05B300FB37B7 /* NotesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NotesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B53423A722DF05B300FB37B7 /* NotesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesTests.swift; sourceTree = "<group>"; };
 		B53423A922DF05B300FB37B7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B53423C222DF062A00FB37B7 /* NotesStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = NotesStoryboard.storyboard; sourceTree = "<group>"; };
+		B53423C422DF075F00FB37B7 /* NotesListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesListViewController.swift; sourceTree = "<group>"; };
+		B53423C722DF187100FB37B7 /* add.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = add.png; sourceTree = "<group>"; };
+		B53423C922DF1D6400FB37B7 /* NoteListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteListView.swift; sourceTree = "<group>"; };
+		B53423CB22DF20AF00FB37B7 /* NotesListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesListViewModel.swift; sourceTree = "<group>"; };
+		B53423CD22DF244300FB37B7 /* NotesListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesListTableViewCell.swift; sourceTree = "<group>"; };
+		B53423CF22DF3AFA00FB37B7 /* NotesHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesHandler.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,8 +85,11 @@
 		B534239B22DF05B300FB37B7 /* Notes */ = {
 			isa = PBXGroup;
 			children = (
+				B53423C622DF078600FB37B7 /* NotesList */,
 				B534239C22DF05B300FB37B7 /* Notes.h */,
 				B534239D22DF05B300FB37B7 /* Info.plist */,
+				B53423C222DF062A00FB37B7 /* NotesStoryboard.storyboard */,
+				B53423CF22DF3AFA00FB37B7 /* NotesHandler.swift */,
 			);
 			path = Notes;
 			sourceTree = "<group>";
@@ -84,6 +101,18 @@
 				B53423A922DF05B300FB37B7 /* Info.plist */,
 			);
 			path = NotesTests;
+			sourceTree = "<group>";
+		};
+		B53423C622DF078600FB37B7 /* NotesList */ = {
+			isa = PBXGroup;
+			children = (
+				B53423C722DF187100FB37B7 /* add.png */,
+				B53423CB22DF20AF00FB37B7 /* NotesListViewModel.swift */,
+				B53423C422DF075F00FB37B7 /* NotesListViewController.swift */,
+				B53423C922DF1D6400FB37B7 /* NoteListView.swift */,
+				B53423CD22DF244300FB37B7 /* NotesListTableViewCell.swift */,
+			);
+			path = NotesList;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -148,6 +177,7 @@
 				TargetAttributes = {
 					B534239822DF05B300FB37B7 = {
 						CreatedOnToolsVersion = 10.2.1;
+						LastSwiftMigration = 1020;
 					};
 					B53423A122DF05B300FB37B7 = {
 						CreatedOnToolsVersion = 10.2.1;
@@ -177,6 +207,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B53423C822DF187100FB37B7 /* add.png in Resources */,
+				B53423C322DF062A00FB37B7 /* NotesStoryboard.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -194,6 +226,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B53423CA22DF1D6400FB37B7 /* NoteListView.swift in Sources */,
+				B53423D022DF3AFA00FB37B7 /* NotesHandler.swift in Sources */,
+				B53423CC22DF20AF00FB37B7 /* NotesListViewModel.swift in Sources */,
+				B53423C522DF075F00FB37B7 /* NotesListViewController.swift in Sources */,
+				B53423CE22DF244300FB37B7 /* NotesListTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -341,6 +378,7 @@
 		B53423AE22DF05B300FB37B7 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
@@ -357,6 +395,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = Epam.Notes;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -365,6 +404,7 @@
 		B53423AF22DF05B300FB37B7 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
@@ -389,6 +429,7 @@
 		B53423B122DF05B300FB37B7 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = NotesTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -406,6 +447,7 @@
 		B53423B222DF05B300FB37B7 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = NotesTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
