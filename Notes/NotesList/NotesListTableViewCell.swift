@@ -14,9 +14,15 @@ protocol NotesListTableViewCellDelegate: class {
 
 class NotesListTableViewCell: UITableViewCell {
     
+    @IBOutlet weak var titleLbl: UILabel!
     weak var delegate:NotesListTableViewCellDelegate?
     
+    override func awakeFromNib() {
+        titleLbl.font = UIFont.preferredFont(forTextStyle: UIFont.TextStyle.body)
+    }
+    
     func updateUI() {
-        delegate?.dataForCell(ref: self)
+        let data = delegate?.dataForCell(ref: self)
+        titleLbl.text = data
     }
 }

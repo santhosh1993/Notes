@@ -20,22 +20,17 @@ class NotesListViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        if let vc = segue.destination as? NotesDetailViewController {
+            vc.data(notes: "Shopping List\r\r1. Cheese\r2. Biscuits\r3. Sausages\r4. IMPORTANT Cash for going out!\r5. -potatoes-\r6. A copy of iOS6 by tutorials\r7. A new iPhone\r8. A present for mum")
+        }
     }
-    */
-
+ 
 }
 
 extension NotesListViewController: NotesListViewDelegate{
     func selectedIndex(indexpath: IndexPath) {
-        
+        performSegue(withIdentifier: "ListToDetailIdentifier", sender: self)
     }
     
     func addButtontapped() {
