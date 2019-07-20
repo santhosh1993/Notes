@@ -32,8 +32,10 @@ class NotesListViewModel{
     
     func viewWillAppear() {
         CoreDataHandler.shared.getNotes { [weak self] (notes) in
-            self?.listData = notes
-            self?.delegate?.updateUI()
+            DispatchQueue.main.async { [weak self] in
+                self?.listData = notes
+                self?.delegate?.updateUI()
+            }
         }
     }
     
@@ -63,6 +65,11 @@ class NotesListViewModel{
         DispatchQueue.main.async { [weak self] in
             self?.delegate?.dismissTheNotes()
         }
+    }
+    
+    func deleteActionOccurred(indexPath: IndexPath) {
+        CoreDataHandler.shared.deleteNotes(key: listData[indexPath.row].key ?? "")
+        viewWillAppear()
     }
 }
 

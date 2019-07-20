@@ -58,6 +58,10 @@ extension NotesListViewController: NotesListViewDelegate{
     func updateUI() {
         notesListVw.updateUI()
     }
+    
+    func deleteActionOccurred(indexPath: IndexPath) {
+        viewModel.deleteActionOccurred(indexPath: indexPath)
+    }
 }
 
 extension NotesListViewController: NotesListViewModelDelegate {

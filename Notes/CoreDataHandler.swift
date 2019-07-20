@@ -96,4 +96,14 @@ extension CoreDataHandler {
             listCallBack(notes ?? [])
         }
     }
+    
+    func deleteNotes(key:String) {
+        queue.async { [weak self] in
+            let notes = self?.fetchTheData(entity: "Note", predicate: NSPredicate(format: "key == %@", key))
+            if let note = notes?.first as? Note {
+                self?.getContext().delete(note)
+                self?.saveContext()
+            }
+        }
+    }
 }

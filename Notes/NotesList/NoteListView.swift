@@ -18,6 +18,7 @@ protocol NotesListViewDelegate: class {
     func selectedIndex(indexpath: IndexPath)
     func addButtontapped()
     func closeButtonTapped()
+    func deleteActionOccurred(indexPath:IndexPath)
 }
 
 class NotesListView: UIView {
@@ -59,6 +60,13 @@ extension NotesListView: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 0.1
+    }
+    
+    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        let action = UITableViewRowAction.init(style: UITableViewRowAction.Style.destructive, title: "Delete") { (action, indexPath) in
+            self.delegate?.deleteActionOccurred(indexPath: indexPath)
+        }
+        return [action]
     }
 }
 
