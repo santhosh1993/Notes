@@ -85,6 +85,11 @@
                         </connections>
                     </view>
                     <navigationItem key="navigationItem" title="List" id="5hF-ej-rps">
+                        <barButtonItem key="leftBarButtonItem" title="Close" id="TzW-p3-aLg">
+                            <connections>
+                                <action selector="closeButtonTapped:" destination="gSY-cX-Iqz" id="7GY-Ll-sN0"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" image="add" id="zSY-w3-qRY">
                             <connections>
                                 <action selector="addButtonTapped:" destination="gSY-cX-Iqz" id="EFR-E6-AIJ"/>
@@ -156,6 +161,7 @@
                         <viewLayoutGuide key="safeArea" id="q5h-Og-FVa"/>
                         <connections>
                             <outlet property="notesTextView" destination="XGL-RW-1HR" id="bJn-2h-Aoc"/>
+                            <outlet property="notesTitleTextField" destination="BFc-5A-8zU" id="8Jg-nE-mLZ"/>
                         </connections>
                     </view>
                     <navigationItem key="navigationItem" id="a1D-fw-WHs">

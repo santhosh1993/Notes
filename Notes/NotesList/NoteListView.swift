@@ -17,6 +17,7 @@ protocol NotesListViewDataSource: class  {
 protocol NotesListViewDelegate: class {
     func selectedIndex(indexpath: IndexPath)
     func addButtontapped()
+    func closeButtonTapped()
 }
 
 class NotesListView: UIView {
@@ -30,6 +31,9 @@ class NotesListView: UIView {
         delegate?.addButtontapped()
     }
     
+    @IBAction func closeButtonTapped(_ sender: UIBarButtonItem) {
+        delegate?.closeButtonTapped()
+    }
 }
 
 extension NotesListView: UITableViewDataSource {

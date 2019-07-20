@@ -9,11 +9,13 @@
 import UIKit
 
 protocol NotesDetailViewDataSource: class {
-    var notes:String {get}
+    var title:String {get}
+    var description:String {get}
 }
 
 class NotesDetailView: UIView {
 
+    @IBOutlet weak var notesTitleTextField: UITextField!
     @IBOutlet weak var notesTextView: UITextView!
     weak var dataSource:NotesDetailViewDataSource?
     
@@ -34,6 +36,7 @@ class NotesDetailView: UIView {
     
     func updateUI() {
         updateFont()
-        notesTextView.text = dataSource?.notes ?? ""
+        notesTitleTextField.text = dataSource?.title
+        notesTextView.text = dataSource?.description ?? ""
     }
 }

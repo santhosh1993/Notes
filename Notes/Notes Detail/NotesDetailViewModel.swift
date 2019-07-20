@@ -9,5 +9,17 @@
 import Foundation
 
 class NotesDetailViewModel: NotesDetailViewDataSource {
-    var notes:String = ""
+    var notes:Note?
+    
+    func updateNote(note: Note) {
+        notes = note
+    }
+    
+    var title: String {
+        return notes?.title ?? ""
+    }
+    
+    var description: String {
+        return notes?.description ?? ""
+    }
 }
