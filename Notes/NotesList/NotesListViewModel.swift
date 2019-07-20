@@ -11,34 +11,58 @@ import Foundation
 protocol NotesListViewModelDelegate {
     func pushToDetailView()
     func dismissTheNotes()
+    func updateUI()
 }
 
 class NotesListViewModel{
     var listData:[Note] = []
-    var selectedNote:Note = Note(title: "", description: "")
+    var selectedNote:Note?
     var delegate: NotesListViewModelDelegate?
     
-    func dataForDetailView() -> Note {
+    init() {
+        CoreDataHandler.shared.getNotes { [weak self] (notes) in
+            self?.listData = notes
+            self?.delegate?.updateUI()
+        }
+    }
+    
+    func dataForDetailView() -> Note? {
         return selectedNote
+    }
+    
+    func viewWillAppear() {
+        CoreDataHandler.shared.getNotes { [weak self] (notes) in
+            self?.listData = notes
+            self?.delegate?.updateUI()
+        }
     }
     
     func selectedIndex(index:IndexPath) {
         selectedNote = listData[index.row]
-        delegate?.pushToDetailView()
+        DispatchQueue.main.async { [weak self] in
+            self?.delegate?.pushToDetailView()
+        }
     }
     
-    func updateSelectedNote(title:String, description:String) {
-        selectedNote.title = title
-        selectedNote.description = description
-        delegate?.pushToDetailView()
+    func updateSelectedNote(title:String, description:String, key: String) {
+        CoreDataHandler.shared.addNote(title: title, description: description, key: key) { [weak self] (note) in
+            DispatchQueue.main.async { [weak self] in
+                self?.selectedNote = note
+                self?.delegate?.pushToDetailView()
+            }
+        }
     }
     
     func addNewNotes() {
-        delegate?.pushToDetailView()
+        DispatchQueue.main.async { [weak self] in
+            self?.delegate?.pushToDetailView()
+        }
     }
     
     func closeButtonTapped() {
-        delegate?.dismissTheNotes()
+        DispatchQueue.main.async { [weak self] in
+            self?.delegate?.dismissTheNotes()
+        }
     }
 }
 
@@ -53,6 +77,6 @@ extension NotesListViewModel: NotesListViewDataSource{
     }
     
     func dataForIndex(indexPath:IndexPath) -> String {
-        return listData[indexPath.row].title
+        return listData[indexPath.row].title ?? ""
     }
 }

@@ -15,11 +15,11 @@ class NotesDetailViewModel: NotesDetailViewDataSource {
         notes = note
     }
     
-    var title: String {
-        return notes?.title ?? ""
+    var title: String? {
+        return notes?.title
     }
     
-    var description: String {
-        return notes?.description ?? ""
+    var notesDescription: String? {
+        return notes?.notesDescription
     }
 }

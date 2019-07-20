@@ -20,7 +20,7 @@ class NotesDetailViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-    func data(notes:Note) {
+    func data(notes:Note?) {
         viewModel.notes = notes
     }
 

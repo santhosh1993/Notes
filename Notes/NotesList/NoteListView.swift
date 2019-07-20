@@ -34,6 +34,10 @@ class NotesListView: UIView {
     @IBAction func closeButtonTapped(_ sender: UIBarButtonItem) {
         delegate?.closeButtonTapped()
     }
+    
+    func updateUI() {
+        notesTableView.reloadData()
+    }
 }
 
 extension NotesListView: UITableViewDataSource {
@@ -48,6 +52,8 @@ extension NotesListView: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell:NotesListTableViewCell = tableView.dequeueReusableCell(withIdentifier: "NotesListTableViewCellIdentifier", for: indexPath) as! NotesListTableViewCell
         cell.delegate = self
+        cell.indexPath = indexPath
+        cell.updateUI()
         return cell
     }
     
@@ -64,11 +70,7 @@ extension NotesListView: UITableViewDelegate {
 }
 
 extension NotesListView: NotesListTableViewCellDelegate{
-    func dataForCell(ref: NotesListTableViewCell) -> String {
-        if let indexPath = notesTableView.indexPath(for: ref){
-            return dataSource?.dataForIndex(indexPath: indexPath) ?? ""
-        }
-        
-        return ""
+    func dataForCell(indexPath: IndexPath) -> String {
+        return dataSource?.dataForIndex(indexPath: indexPath) ?? ""
     }
 }

@@ -9,12 +9,13 @@
 import UIKit
 
 protocol NotesListTableViewCellDelegate: class {
-    func dataForCell(ref: NotesListTableViewCell) -> String
+    func dataForCell(indexPath: IndexPath) -> String
 }
 
 class NotesListTableViewCell: UITableViewCell {
     
     @IBOutlet weak var titleLbl: UILabel!
+    var indexPath:IndexPath?
     weak var delegate:NotesListTableViewCellDelegate?
     
     override func awakeFromNib() {
@@ -30,7 +31,9 @@ class NotesListTableViewCell: UITableViewCell {
     }
     
     func updateUI() {
-        let data = delegate?.dataForCell(ref: self)
-        titleLbl.text = data
+        if let indexPath = indexPath {
+            let data = delegate?.dataForCell(indexPath:indexPath)
+            titleLbl.text = data
+        }
     }
 }

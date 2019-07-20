@@ -15,8 +15,8 @@ public class Notes {
         shared.showNotesListVC()
     }
     
-    public static func addNotesaddNotes(title:String, description: String) {
-        shared.addNotes(title: title, description: description)
+    public static func addNotesWith(title:String, description: String, key:String) {
+        shared.addNotes(title: title, description: description, key: key)
     }
     
     func showNotesListVC() {
@@ -29,11 +29,11 @@ public class Notes {
         }
     }
     
-    func addNotes(title:String, description: String) {
+    func addNotes(title:String, description: String, key:String) {
         if let notesNavigationVC = UIStoryboard(name: "NotesStoryboard", bundle: Bundle(for: type(of: self))).instantiateViewController(withIdentifier: "NotesNaviationControllerIdentifier") as? UINavigationController {
             DispatchQueue.main.async {
                 if let vc = notesNavigationVC.viewControllers.first as? NotesListViewController{
-                    vc.pushToDetailVC(title: title, description: description)
+                    vc.pushToDetailVC(title: title, description: description, key: key)
                     UIApplication.shared.delegate?.window??.rootViewController?.present(notesNavigationVC, animated: false, completion: {
                         
                     })

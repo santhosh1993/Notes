@@ -25,14 +25,19 @@ class NotesListViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        viewModel.viewWillAppear()
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let vc = segue.destination as? NotesDetailViewController {
             vc.data(notes: viewModel.dataForDetailView())
         }
     }
     
-    func pushToDetailVC(title:String, description: String) {
-        viewModel.updateSelectedNote(title: title, description: description)
+    func pushToDetailVC(title:String, description: String, key: String) {
+        viewModel.updateSelectedNote(title: title, description: description, key: key)
     }
  
 }
@@ -48,6 +53,10 @@ extension NotesListViewController: NotesListViewDelegate{
     
     func closeButtonTapped() {
         viewModel.closeButtonTapped()
+    }
+    
+    func updateUI() {
+        notesListVw.updateUI()
     }
 }
 
