@@ -108,8 +108,29 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title :" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d19-Rs-piD">
+                                <rect key="frame" x="10" y="98" width="394" height="18"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="Title" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="BFc-5A-8zU">
+                                <rect key="frame" x="10" y="126" width="394" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="gkd-7M-zxh"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description :" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f5N-Dz-Sce">
+                                <rect key="frame" x="10" y="176" width="394" height="18"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="XGL-RW-1HR">
-                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
+                                <rect key="frame" x="10" y="204" width="394" height="658"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -118,16 +139,28 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="q5h-Og-FVa" firstAttribute="trailing" secondItem="XGL-RW-1HR" secondAttribute="trailing" id="1sM-fh-ZU1"/>
                             <constraint firstItem="q5h-Og-FVa" firstAttribute="bottom" secondItem="XGL-RW-1HR" secondAttribute="bottom" id="7lB-bm-0gb"/>
-                            <constraint firstItem="XGL-RW-1HR" firstAttribute="top" secondItem="q5h-Og-FVa" secondAttribute="top" id="j4f-ME-M5Z"/>
-                            <constraint firstItem="XGL-RW-1HR" firstAttribute="leading" secondItem="q5h-Og-FVa" secondAttribute="leading" id="nyS-wE-gAU"/>
+                            <constraint firstItem="q5h-Og-FVa" firstAttribute="trailing" secondItem="d19-Rs-piD" secondAttribute="trailing" constant="10" id="9N4-BA-dF6"/>
+                            <constraint firstItem="d19-Rs-piD" firstAttribute="leading" secondItem="q5h-Og-FVa" secondAttribute="leading" constant="10" id="EcW-wU-oOY"/>
+                            <constraint firstItem="BFc-5A-8zU" firstAttribute="top" secondItem="d19-Rs-piD" secondAttribute="bottom" constant="10" id="Etb-xH-wbi"/>
+                            <constraint firstItem="f5N-Dz-Sce" firstAttribute="top" secondItem="BFc-5A-8zU" secondAttribute="bottom" constant="10" id="Vm0-ki-EUN"/>
+                            <constraint firstItem="f5N-Dz-Sce" firstAttribute="leading" secondItem="d19-Rs-piD" secondAttribute="leading" id="Vuh-2w-KRm"/>
+                            <constraint firstItem="f5N-Dz-Sce" firstAttribute="trailing" secondItem="d19-Rs-piD" secondAttribute="trailing" id="ZN8-e8-Pwe"/>
+                            <constraint firstItem="XGL-RW-1HR" firstAttribute="leading" secondItem="BFc-5A-8zU" secondAttribute="leading" id="csL-3U-jjU"/>
+                            <constraint firstItem="d19-Rs-piD" firstAttribute="top" secondItem="q5h-Og-FVa" secondAttribute="top" constant="10" id="kUw-5h-20G"/>
+                            <constraint firstItem="BFc-5A-8zU" firstAttribute="leading" secondItem="q5h-Og-FVa" secondAttribute="leading" constant="10" id="m4C-3P-J7H"/>
+                            <constraint firstItem="XGL-RW-1HR" firstAttribute="trailing" secondItem="BFc-5A-8zU" secondAttribute="trailing" id="pai-4r-oQx"/>
+                            <constraint firstItem="q5h-Og-FVa" firstAttribute="trailing" secondItem="BFc-5A-8zU" secondAttribute="trailing" constant="10" id="w0r-CD-Se0"/>
+                            <constraint firstItem="XGL-RW-1HR" firstAttribute="top" secondItem="f5N-Dz-Sce" secondAttribute="bottom" constant="10" id="w4R-s0-r4m"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="q5h-Og-FVa"/>
                         <connections>
                             <outlet property="notesTextView" destination="XGL-RW-1HR" id="bJn-2h-Aoc"/>
                         </connections>
                     </view>
+                    <navigationItem key="navigationItem" id="a1D-fw-WHs">
+                        <barButtonItem key="rightBarButtonItem" title="Save" id="cKb-MV-UbD"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="detailView" destination="cZL-C8-gVT" id="lFJ-df-6lh"/>
                     </connections>

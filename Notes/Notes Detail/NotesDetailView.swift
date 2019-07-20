@@ -18,10 +18,22 @@ class NotesDetailView: UIView {
     weak var dataSource:NotesDetailViewDataSource?
     
     override func awakeFromNib() {
+        NotificationCenter.default.addObserver(self, selector: #selector(prefferedContentSizeChanged(notification:)), name: UIContentSizeCategory.didChangeNotification, object: nil)
+        notesTextView.layer.borderColor = #colorLiteral(red: 0.3333333433, green: 0.3333333433, blue: 0.3333333433, alpha: 1)
+        notesTextView.layer.borderWidth = 1.0
+        
+    }
+    
+    @objc func prefferedContentSizeChanged(notification: NSNotification) {
+        updateFont()
+    }
+    
+    func updateFont() {
         notesTextView.font = UIFont.preferredFont(forTextStyle: UIFont.TextStyle.body)
     }
     
     func updateUI() {
+        updateFont()
         notesTextView.text = dataSource?.notes ?? ""
     }
 }

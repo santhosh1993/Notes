@@ -18,6 +18,14 @@ class NotesListTableViewCell: UITableViewCell {
     weak var delegate:NotesListTableViewCellDelegate?
     
     override func awakeFromNib() {
+        NotificationCenter.default.addObserver(self, selector: #selector(prefferedContentSizeChanged(notification:)), name: UIContentSizeCategory.didChangeNotification, object: nil)
+    }
+    
+    @objc func prefferedContentSizeChanged(notification: NSNotification) {
+        updateFont()
+    }
+    
+    func updateFont() {
         titleLbl.font = UIFont.preferredFont(forTextStyle: UIFont.TextStyle.body)
     }
     
