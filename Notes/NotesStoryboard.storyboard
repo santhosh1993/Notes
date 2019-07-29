@@ -165,7 +165,11 @@
                         </connections>
                     </view>
                     <navigationItem key="navigationItem" id="a1D-fw-WHs">
-                        <barButtonItem key="rightBarButtonItem" title="Save" id="cKb-MV-UbD"/>
+                        <barButtonItem key="rightBarButtonItem" title="Save" id="cKb-MV-UbD">
+                            <connections>
+                                <action selector="saveButtonTapped:" destination="vN0-Hm-n0Q" id="Z1n-yg-lSK"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="detailView" destination="cZL-C8-gVT" id="lFJ-df-6lh"/>

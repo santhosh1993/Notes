@@ -8,9 +8,13 @@
 
 import Foundation
 
+protocol NotesDetailViewModelDelegate: class {
+    func popTheViewController()
+}
+
 class NotesDetailViewModel: NotesDetailViewDataSource {
     var notes:Note?
-    
+    weak var delegate: NotesDetailViewModelDelegate?
     func updateNote(note: Note) {
         notes = note
     }
@@ -21,5 +25,12 @@ class NotesDetailViewModel: NotesDetailViewDataSource {
     
     var notesDescription: String? {
         return notes?.notesDescription
+    }
+    
+    func saveTheNotes(title: String, description: String) {
+        CoreDataHandler.shared.addNote(title: title, description: description, key: notes?.key ?? "") { (note) in
+            
+        }
+        delegate?.popTheViewController()
     }
 }

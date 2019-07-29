@@ -15,7 +15,9 @@ class NotesDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        viewModel.delegate = self
         detailView.dataSource = viewModel
+        detailView.delegate = self
         detailView.updateUI()
         // Do any additional setup after loading the view.
     }
@@ -23,5 +25,20 @@ class NotesDetailViewController: UIViewController {
     func data(notes:Note?) {
         viewModel.notes = notes
     }
+    
+    @IBAction func saveButtonTapped(_ sender: UIBarButtonItem) {
+        detailView.saveButtonTapped(sender)
+    }
+}
 
+extension NotesDetailViewController: NotesDetailViewDelegate {
+    func saveTheNotes(title: String, description: String) {
+        viewModel.saveTheNotes(title: title, description: description)
+    }
+}
+
+extension NotesDetailViewController: NotesDetailViewModelDelegate {
+    func popTheViewController() {
+        self.navigationController?.popViewController(animated: true)
+    }
 }
