@@ -21,8 +21,10 @@ class NotesListViewModel{
     
     init() {
         CoreDataHandler.shared.getNotes { [weak self] (notes) in
-            self?.listData = notes
-            self?.delegate?.updateUI()
+            DispatchQueue.main.async { [weak self] in
+                self?.listData = notes
+                self?.delegate?.updateUI()
+            }
         }
     }
     
