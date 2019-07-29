@@ -89,7 +89,7 @@ Pod::Spec.new do |spec|
   #  Not including the public_header_files will make all headers public.
   #
 
-  spec.source_files  = "Notes/*.{h,m,swift,storyboard,png,xcdatamodeld}","Notes/Notes\ Detail/*.{h,m,swift,storyboard,png}","Notes/NotesList/*.{h,m,swift,storyboard,png}"
+  spec.source_files  = "Notes/*.{h,m,swift,storyboard,png,xcdatamodeld}","Notes/Notes\ Detail/*.{h,m,swift,storyboard,png,xcdatamodeld}","Notes/NotesList/*.{h,m,swift,storyboard,png,xcdatamodeld}"
   spec.exclude_files = "Classes/Exclude"
 
   # spec.public_header_files = "Classes/**/*.h"
