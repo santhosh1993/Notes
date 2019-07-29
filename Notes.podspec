@@ -64,7 +64,7 @@ Pod::Spec.new do |spec|
 
   # spec.platform     = :ios
   # spec.platform     = :ios, "5.0"
-
+  spec.swift_version = "4.2"
   #  When using multiple platforms
    spec.ios.deployment_target = "10.0"
   # spec.osx.deployment_target = "10.7"
@@ -89,9 +89,11 @@ Pod::Spec.new do |spec|
   #  Not including the public_header_files will make all headers public.
   #
 
-  spec.source_files  = "Notes/*.{h,m,swift,storyboard,png,xcdatamodeld}","Notes/Notes\ Detail/*.{h,m,swift,storyboard,png,xcdatamodeld}","Notes/NotesList/*.{h,m,swift,storyboard,png,xcdatamodeld}"
+  spec.source_files  = "Notes/*.{h,m,swift,storyboard,png,xcdatamodeld}","Notes/Notes\ Detail/*.{h,m,swift,storyboard,png,xcdatamodeld}","Notes/NotesList/*.{h,m,swift,storyboard,png,xcdatamodeld}","Notes/NotesModel.xcdatamodeld","Notes/NotesModel.xcdatamodeld/*.xcdatamodel"
   spec.exclude_files = "Classes/Exclude"
+  spec.resources = [ "Notes/NotesModel.xcdatamodeld","Notes/NotesModel.xcdatamodeld/*.xcdatamodel"]
 
+  spec.preserve_paths = "Notes/NotesModel.xcdatamodeld"
   # spec.public_header_files = "Classes/**/*.h"
 
 
@@ -115,7 +117,7 @@ Pod::Spec.new do |spec|
   #  the lib prefix of their name.
   #
 
-  # spec.framework  = "SomeFramework"
+   spec.framework  = "CoreData"
   # spec.frameworks = "SomeFramework", "AnotherFramework"
 
   # spec.library   = "iconv"
